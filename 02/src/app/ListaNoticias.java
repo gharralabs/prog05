@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ListaNoticias {
+public class ListaNoticias extends Observável {
     
     private final List<Noticia> noticias;
     
@@ -19,6 +19,7 @@ public class ListaNoticias {
         Noticia noticia;
         noticia = new Noticia(titulo, materia);
         noticias.add(noticia);
+        notificar();
         return noticia;
     }
    

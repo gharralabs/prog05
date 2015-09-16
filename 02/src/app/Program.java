@@ -10,14 +10,13 @@ public class Program
         scanner = new Scanner(System.in);
         
         ListaNoticias lista = new ListaNoticias();
+        Estadao estadao = new Estadao(lista);
+        lista.anexar(estadao);
         
-        VerificadorUltimaNoticiaRunnable vunr;
-        vunr = new VerificadorUltimaNoticiaRunnable(lista);
-                
-        Thread th  = new Thread(vunr);
-        th.start();
+        FolhaSP folha = new FolhaSP(lista);
+        lista.anexar(folha);
 
-        while( true )
+        do
         {
             System.out.println("Informe o título da notícia: ");
             String titulo = scanner.nextLine();
@@ -30,8 +29,7 @@ public class Program
             
             lista.adicionar(titulo, materia);
         }
-        
-        th.interrupt();
+        while(true);
     }
     
 }

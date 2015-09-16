@@ -1,7 +1,7 @@
 package app;
 
 
-public class Estadao {
+public class Estadao implements Observador{
     
     private final ListaNoticias lista;
     public Noticia ultimaNoticia;
@@ -31,5 +31,11 @@ public class Estadao {
                 ultimaNoticia = noticia;
             }   
         }
+    }
+
+    @Override
+    public void atualizar(Observável observável)
+    {
+        exibirUltima();
     }
 }

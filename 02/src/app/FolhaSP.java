@@ -1,7 +1,7 @@
 package app;
 
 
-public class FolhaSP {
+public class FolhaSP implements Observador {
     private final ListaNoticias lista;
     private Noticia ultimaNoticia;
 
@@ -20,16 +20,19 @@ public class FolhaSP {
 
     public void mostrarUltima()
     {
-        synchronized(lista)
+        Noticia noticia = lista.obterUltima();
+
+        if (ultimaNoticia != noticia)
         {
-            Noticia noticia = lista.obterUltima();
-            
-            if( ultimaNoticia != noticia)
-            {
-                mostrar(noticia);
-                ultimaNoticia = noticia;
-            }   
+            mostrar(noticia);
+            ultimaNoticia = noticia;
         }
+    }
+
+    @Override
+    public void atualizar(Observável observável)
+    {
+        mostrarUltima();
     }
     
 
