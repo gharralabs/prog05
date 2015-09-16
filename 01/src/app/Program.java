@@ -22,6 +22,8 @@ public class Program
         tabela.setTitle("Tabela");
         tabela.setLocation( grafico.getWidth() + 100, 0);
 
+        fonte.anexar(grafico);
+        fonte.anexar(tabela);
         
         
         Scanner scanner;
@@ -33,13 +35,7 @@ public class Program
         {
             System.out.println("Informe um valor: ");
             valor = scanner.nextInt();
-            fonte.adicionar(valor); // Todas as vezes que um novo valor
-                                    // for adicionado a fonte de dados 
-                                    // todos os objetos dependentes
-                                    // deverão se atualizar.
-            
-            tabela.desenhar();
-            grafico.plotar();
+            fonte.adicionar(valor);
         }
         while( valor != -1 );
         

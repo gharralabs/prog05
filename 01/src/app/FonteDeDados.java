@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class FonteDeDados {
+public class FonteDeDados extends Observável {
     
     private List<Integer> lista = new ArrayList<>();
 
@@ -16,5 +16,6 @@ public class FonteDeDados {
     public void adicionar(Integer valor)
     {
         lista.add(valor);
+        notificar();
     }
 }

@@ -9,7 +9,7 @@ package app;
  *
  * @author Ian
  */
-public class TabelaJFrame extends javax.swing.JFrame
+public class TabelaJFrame extends javax.swing.JFrame implements Observador
 {
     private final FonteDeDados fonte;
 
@@ -82,4 +82,10 @@ public class TabelaJFrame extends javax.swing.JFrame
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void atualizar(Observável observável)
+    {
+        desenhar();
+    }
 }
